@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/button1_start_service"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="start service" />
+
+        <Button
+            android:id="@+id/button2_stop_service"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="stop service"/>
+
+        <Button
+            android:id="@+id/button3_stop_intentservice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="start intentservice"/>
+
+        <Button
+            android:id="@+id/button4_bing_service"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="bind service"/>
+
+        <Button
+            android:id="@+id/button5_unbind_service"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="unbind service"/>
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>
