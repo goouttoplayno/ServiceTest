@@ -1,5 +1,6 @@
 package com.example.servicetest;
 
+import android.app.Person;
 import android.app.Service;
 import android.content.Intent;
 import android.os.Binder;
@@ -9,6 +10,7 @@ import android.util.Log;
 public class MyService extends Service {
     private static final String TAG = "MyService";
     private MyBinder mBinder = new MyBinder();
+
     //创建服务时调用
     @Override
     public void onCreate() {
