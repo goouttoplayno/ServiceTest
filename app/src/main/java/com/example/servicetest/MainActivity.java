@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -18,6 +19,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             button3_start_intentservice, button4_bind_service, button5_unbind_service;
     private MyService.MyBinder myBinder;
     private boolean mBound = false;
+    private TextView textView;
 
     private ServiceConnection connection = new ServiceConnection() {
         @Override
@@ -44,6 +46,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         button3_start_intentservice = (Button)findViewById(R.id.button3_stop_intentservice);
         button4_bind_service = (Button)findViewById(R.id.button4_bing_service);
         button5_unbind_service = (Button)findViewById(R.id.button5_unbind_service);
+        textView = (TextView)findViewById(R.id.text_View1);
         button1_start_service.setOnClickListener(this);
         button2_stop_service.setOnClickListener(this);
         button3_start_intentservice.setOnClickListener(this);
@@ -57,6 +60,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.button1_start_service:
                 Intent startintent = new Intent(this, MyService.class);
                 startService(startintent);
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        textView.setText("1");
+                    }
+                }).run();
                 break;
             case R.id.button2_stop_service:
                 Intent stopintent = new Intent(this, MyService.class);

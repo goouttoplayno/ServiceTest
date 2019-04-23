@@ -1,5 +1,7 @@
 package com.example.servicetest;
 
+import android.os.SystemClock;
+
 import org.junit.Test;
 
 import java.lang.reflect.Modifier;
@@ -19,12 +21,29 @@ public class ExampleUnitTest {
     @Test
     public void addition_isCorrect() {
         assertEquals(4, 2 + 2);
-        Runnable r1 = new ThreadTest();
-        Runnable r2 = new ThreadTest();
-        Thread t1 = new Thread(r1);
-        Thread t2 = new Thread(r2);
-        t1.start();
-        t2.start();
+
+        //
+        System.out.println( "当前线程id： " + Thread.currentThread().getId());
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println( "start前线程id： " + Thread.currentThread().getId());
+            }
+        }).start();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println( "run前线程id： " + Thread.currentThread().getId());
+            }
+        }).run();//run在主线程中执行，start新启动一个线程
+
+        //加入同步块后可以交替输出
+//        Runnable r1 = new ThreadTest();
+//        Runnable r2 = new ThreadTest();
+//        Thread t1 = new Thread(r1);
+//        Thread t2 = new Thread(r2);
+//        t1.start();
+//        t2.start();
 
     }
 
